@@ -10,8 +10,8 @@ class Role < ActiveRecord::Base
     end
 
     def lead
-        if (self.auditions.where(hired: true).first) 
-            self.auditions.where(hired: true).first  
+        if (self.auditions.find_by(hired: true)) 
+            self.auditions.find_by(hired: true)  
         else
             'no actor has been hired for this role'
         end
